@@ -16,6 +16,7 @@ export default {
 <template>
   <div id="app">
     <sprite-svg />
+    <flash-message :position="'right top'" />
     <layout-auth v-if="isAuthenticate" class="l-main"></layout-auth>
     <Layout-external v-else></Layout-external>
   </div>

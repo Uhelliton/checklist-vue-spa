@@ -1,20 +1,15 @@
+import UserService from '@/app/domains/users/services/user-service'
+import UserStorage from '@/app/domains/users//storage/user-storage'
+
 const CHANGE_USER = 'CHANGE_USER'
 const CHANGE_TOKEN = 'CHANGE_TOKEN'
 const CLEAR_USER_SESSION = 'CLEAR_USER_SESSION'
 
-const userData = {
-  user: {
-    name: 'Uhelliton Andrade',
-    email: 'uhlliton@uol.com.br'
-  },
-  token: 'eyJhbGciOiJIUzI1NiJ9'
-}
-
 export default {
   namespaced: true,
   state: {
-    auth: {},
-    token: ''
+    auth: UserStorage.getUser(),
+    token: UserStorage.getToken()
   },
   getters: {
     isAuthenticate: state => { return Object.keys(state.token).length !== 0 },
@@ -35,11 +30,21 @@ export default {
   },
   actions: {
     attemptLogin ({ commit, dispatch }, payload) {
-      commit(CHANGE_USER, userData.user)
-      commit(CHANGE_TOKEN, userData.token)
+      return UserService.authenticate(payload).then(res => {
+        const { data: response, status } = res
+        if (status === 200 && 'user' in response.data) {
+          const data = response.data
+
+          commit(CHANGE_USER, data.user)
+          commit(CHANGE_TOKEN, data.token)
+          UserStorage.store(response.data)
+        }
+        return response
+      }).catch(error => error.response)
     },
     logout ({ commit, dispatch }, payload) {
       commit(CLEAR_USER_SESSION, [])
+      UserStorage.clearSession()
       return true
     }
   }

@@ -6,6 +6,9 @@ import router from './router'
 import store from './store/index'
 import '../src/assets/scss/app.scss'
 
+import FlashMessage from '@smartweb/vue-flash-message'
+Vue.use(FlashMessage)
+
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

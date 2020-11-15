@@ -6,11 +6,12 @@ import routes from './routes'
 
 Vue.use(VueRouter)
 
-const router = new VueRouter({
+export let $router
+$router = new VueRouter({
   routes: routes
   // mode: process.env.ROUTER_MODE,
   // base: process.env.ROUTER_BASE
 })
-router.beforeEach(beforeEach)
+$router.beforeEach(beforeEach)
 
-export default router
+export default $router

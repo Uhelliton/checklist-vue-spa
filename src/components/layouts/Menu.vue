@@ -5,6 +5,23 @@ import Icon from '../svg/icon'
 export default {
   name: 'Menu',
   components: { Icon },
+  data: () => ({
+    menu: [
+      {
+        name: 'Dashboard',
+        router: '/dashboard',
+        icon: 'ic-panel'
+      }, {
+        name: 'Tarefas',
+        router: '/tasks',
+        icon: 'ic-panel'
+      }, {
+        name: 'Usuários',
+        router: '/users',
+        icon: 'ic-panel'
+      }
+    ]
+  }),
   computed: {
     ...mapGetters({
       user: 'user/user'
@@ -33,10 +50,15 @@ export default {
            width="128" />
     </header>
     <ul>
-      <li tabindex="0" title="Dashboard">
-        <icon name="ic-panel" class="m-icon--sm"></icon>
-        <span>Dashboard</span>
-      </li>
+      <router-link tag="li"
+                   tabindex="0"
+                   title="Dashboard"
+                   :to="item.router"
+                   :key="item.title"
+                   v-for="item in menu">
+        <icon :name="item.icon" class="m-icon--sm"></icon>
+        <span>{{ item.name }}</span>
+      </router-link>
       <li tabindex="0"
           title="Sair"
           ref="logout"

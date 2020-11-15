@@ -51,7 +51,7 @@ export default class RestServices {
    * @param {Object} params
    * @returns {Promise}
    */
-  search (params = {}) {
+  all (params = {}) {
     return HttpServices.get(`${this.endpoint}`, params)
   }
 }

@@ -39,8 +39,8 @@ export default {
   data: () => {
     return {
       form: {
-        email: 'email@dasa.com.br',
-        password: 'dasa'
+        email: 'admin@admin.com',
+        password: 'secret'
       }
     }
   },

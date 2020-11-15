@@ -3,13 +3,13 @@
 .m-button {
   outline: none;
   vertical-align: middle;
-  height: pxToRem(40);
-  padding: pxToRem(10) pxToEm(60);
+  height: pxToRem(30);
+  padding: pxToRem(2) pxToEm(20);
   border: none;
   background: $color-primary;
   color: $color-white;
   font: {
-    size: $font--sm ;
+    size: $font--xs ;
   };
   cursor: pointer;
   @extend %rounded-corners;
@@ -29,6 +29,10 @@
 
   &--warning{
     color: $color-warning!important;
+  }
+
+  &--disabled{
+    background: $color-gris-03;
   }
 
   &--link {
