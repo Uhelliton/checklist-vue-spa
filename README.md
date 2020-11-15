@@ -1,6 +1,5 @@
-# Dasa test-spa
+# Checklist VUE SPA
 
-> Teste para avaliação técnica de front-end.
 >
 > Construção de uma aplicação SPA(Single Page Applications)
 
@@ -13,10 +12,10 @@ Antes de começar, você vai precisar ter instalado em sua máquina as seguintes
 [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
 ``` bash
 # Clone este repositório
-$ git clone <https://github.com/Uhelliton/dasa-test-spa.git>
+$ git clone <https://github.com/Uhelliton/checklist-vue-spa.git>
 
 # Acesse a pasta do projeto no terminal/cmd
-$ cd dasa-test-spa
+$ cd checklist-vue-spa
   
 # Instale as dependências
 npm install
@@ -57,5 +56,6 @@ As seguintes arquitetura e metodologia css foram usadas:
 
 - [x] Tela de Login
 - [x] Dashboard
-- [x] Listagem de usuários
+- [x] CRUD de Checklist
+- [x] CRUD de usuários
 
